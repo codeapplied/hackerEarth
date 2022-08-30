@@ -32,7 +32,7 @@ vector<int> del(100001,0);
 
 int tim=0;
 
-void dfs(int i, vector<int> adj[],bool visited[])
+void dfs(int i,vector<int> adj[],bool visited[])
 {
 	stack<int> temp;
 	visited[i]=1;
@@ -40,13 +40,12 @@ void dfs(int i, vector<int> adj[],bool visited[])
 	if(i==del[i])
 	{
 		cout<<"1";
-		return;
+		return ;
 	}
-	while(!item.empty())
+	while(!temp.empty())
 	{
 		int f=temp.top();
 		temp.pop();
-
 		for(int u: adj[f])
 		{
 			if(visited[u]==0)
@@ -57,30 +56,30 @@ void dfs(int i, vector<int> adj[],bool visited[])
 					tim++;
 				}
 				else
-				temp.push(u);
+					temp.push(u);
 			}
 		}
 	}
 	cout<<tim-1<<"\n";
 }
 
-int main() {
-	int num, x, y, g i;
-	cin >> num;
-	for(i=1;i<=num;i++)
+int main()
+{
+	int n,x,y,g,i;
+	cin>>n;
+	for(i=1;i<=n;i++)
 	{
 		cin>>x;
 		if(x==-1)
-		x=0;
+			x=0;
 		adj[i].push_back(x);
-		adj[x].push_back[i];
+		adj[x].push_back(i);
 	}
 	cin>>g;
-
 	while(g--)
 	{
 		cin>>x;
 		del[x]=x;
 	}
-	dfs(1, adj, visited);
+	dfs(1,adj,visited);
 }
