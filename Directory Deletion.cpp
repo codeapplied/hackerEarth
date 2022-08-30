@@ -67,7 +67,7 @@ void dfs(int i, vector<int> adj[],bool visited[])
 int main() {
 	int num, x, y, g i;
 	cin >> num;
-	for(i=1;i<=n;i++)
+	for(i=1;i<=num;i++)
 	{
 		cin>>x;
 		if(x==-1)
