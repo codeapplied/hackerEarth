@@ -27,47 +27,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 vector<int> adj[100001];
-bool visited[100001]={ };
+bool codeback[100001]={ };
 vector<int> del(100001,0);
 
-int tim=0;
+int fix=0;
 
-void dfs(int i,vector<int> adj[],bool visited[])
+void dfs(int i,vector<int> adj[],bool codeback[])
 {
-	stack<int> temp;
-	visited[i]=1;
-	temp.push(i);
+	stack<int> stopgap;
+	codeback[i]=1;
+	stopgap.push(i);
 	if(i==del[i])
 	{
 		cout<<"1";
 		return ;
 	}
-	while(!temp.empty())
+	while(!stopgap.empty())
 	{
-		int f=temp.top();
-		temp.pop();
-		for(int u: adj[f])
+		int front=stopgap.top();
+		stopgap.pop();
+		for(int up: adj[front])
 		{
-			if(visited[u]==0)
+			if(codeback[up]==0)
 			{
-				visited[u]=1;
-				if(del[u]==u)
+				codeback[up]=1;
+				if(del[up]==up)
 				{
-					tim++;
+					fix++;
 				}
 				else
-					temp.push(u);
+					stopgap.push(up);
 			}
 		}
 	}
-	cout<<tim-1<<"\n";
+	cout<<fix-1<<"\n";
 }
 
 int main()
 {
-	int n,x,y,g,i;
-	cin>>n;
-	for(i=1;i<=n;i++)
+	int num,x,y,g,i;
+	cin>>num;
+	for(i=1;i<=num;i++)
 	{
 		cin>>x;
 		if(x==-1)
@@ -81,5 +81,5 @@ int main()
 		cin>>x;
 		del[x]=x;
 	}
-	dfs(1,adj,visited);
+	dfs(1,adj,codeback);
 }
