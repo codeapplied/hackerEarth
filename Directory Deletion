@@ -1,1 +1,25 @@
-## Problem <img src="https://user-images.githubusercontent.com/1303154/88677602-1635ba80-d120-11ea-84d8-d263ba5fc3c0.gif" width="28px" height="28px" alt="hi">
+Problem:
+
+- You are given a directory tree of 'N' directories/folders. Each directory is represented by a particular 'id' which ranges from 1 to 'N.
+- The id of the root directory is 1, then it has some child directories, those directories may contain some other ones and it goes on.
+- Now you are given a list of directory id's to delete, you need to find the minimum number of directories that need to be deleted so that all the directories in the given list get deleted. 
+
+Note:
+that if you delete a particular directory, all its child directories will also get deleted.
+
+Input:
+- The first line of input contains an integer 'N' that denotes how many folders are there.
+- The next line contains N space separated integers that where the 'i^th' integer denotes the id of the parent of the directory with id i.
+- Note that the first integer will be  as  is the id of root folder and it has no parent. Rest of the integers will not be -1 .
+- The next line contains an integer M that denotes how many directories you need to delete.
+- The next line contains M space separated integers that denote the ids of the directories you need to delete.
+
+Output:
+Print the minimum number of directories that need to be deleted.
+
+(1) <= (N) <= (10^5)
+(1) <= (M) <= (N)
+(1) <=(id of parent)<= (N)
+(1) <=(id to be deleted)<= (N)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
